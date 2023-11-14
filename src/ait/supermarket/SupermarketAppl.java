@@ -1,13 +1,9 @@
 package ait.supermarket;
 
-import ait.supermarket.dao.Supermarket;
 import ait.supermarket.dao.SupermarketImpl;
 import ait.supermarket.model.Product;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 public class SupermarketAppl {
     public static void main(String[] args) {
