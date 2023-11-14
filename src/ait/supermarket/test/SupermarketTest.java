@@ -1,7 +1,7 @@
 package ait.supermarket.test;
 
 import ait.supermarket.dao.Supermarket;
-import ait.supermarket.dao.SupermarketIpml;
+import ait.supermarket.dao.SupermarketImpl;
 import ait.supermarket.model.Product;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +19,7 @@ class SupermarketTest {
 
     @BeforeEach
     void setUp() {
-        supermarket = new SupermarketIpml();
+        supermarket = new SupermarketImpl();
 
         products = new Product[]{
                 new Product(1, "Product 1", "Category 1", "Brand 1", 10.10, LocalDate.of(2023, 12, 28)),

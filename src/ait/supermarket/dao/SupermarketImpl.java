@@ -9,10 +9,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class SupermarketIpml implements Supermarket, Iterable<Product> {
+public class SupermarketImpl implements Supermarket, Iterable<Product> {
     private Collection<Product> products;
 
-    public SupermarketIpml() {
+    public SupermarketImpl() {
         products = new ArrayList<>();
     }
 
