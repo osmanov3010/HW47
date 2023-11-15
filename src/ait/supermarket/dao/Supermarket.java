@@ -2,7 +2,7 @@ package ait.supermarket.dao;
 
 import ait.supermarket.model.Product;
 
-public interface Supermarket {
+public interface Supermarket extends Iterable<Product> {
     boolean addProduct(Product product);
 
     Product removeProduct(long barCode);

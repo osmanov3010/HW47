@@ -9,8 +9,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class SupermarketImpl implements Supermarket, Iterable<Product> {
+public class SupermarketImpl implements Supermarket {
     private Collection<Product> products;
+    //private Collection<Product> products = new ArrayList<>();  - можно сделать так. Тогда конструктор не нужно создавать
 
     public SupermarketImpl() {
         products = new ArrayList<>();
@@ -44,17 +45,18 @@ public class SupermarketImpl implements Supermarket, Iterable<Product> {
 
     @Override
     public Iterable<Product> findByCategory(String category) {
-        return findProductsByPredicate(p -> p.getCategory().equals(category));
+        return findProductsByPredicate(p -> p.getCategory().equalsIgnoreCase(category));
     }
 
     @Override
     public Iterable<Product> findByBrand(String brand) {
-        return findProductsByPredicate(p -> p.getBrand().equals(brand));
+        return findProductsByPredicate(p -> p.getBrand().equalsIgnoreCase(brand));
     }
 
     @Override
     public Iterable<Product> findProductWithExpiredDate() {
-        return findProductsByPredicate(p -> LocalDate.now().compareTo(p.getExpDate()) > 0);
+        LocalDate currentTime = LocalDate.now();
+        return findProductsByPredicate(p -> currentTime.isAfter(p.getExpDate()));
     }
 
     @Override
